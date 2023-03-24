@@ -24,13 +24,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        let window = UIWindow(windowScene: windowScene)
        
        /// 3. Create a view hierarchy programmatically
-       let viewController = QuestionViewController(
-           question: "A question?",
-           options: ["Option 1", "Option 2"]) {
-               print($0)
-           }
-       _ = viewController.view
-       viewController.tableView.allowsMultipleSelection = false
+//       let viewController = QuestionViewController(
+//           question: "A question?",
+//           options: ["Option 1", "Option 2"]) {
+//               print($0)
+//           }
+//       _ = viewController.view
+//       viewController.tableView.allowsMultipleSelection = false
+        
+        let viewController = ResultViewController(summary: "You got 1 out of 2 correct", answers: [
+            PresentableAnswer(question: "Question 1", answer: "Correct", wrongAnswer: nil),
+            PresentableAnswer(question: "Question 2", answer: "Correct", wrongAnswer: "No"),
+        ])
+            
        let navigation = UINavigationController(rootViewController: viewController)
        
        /// 4. Set the root view controller of the window with your view controller

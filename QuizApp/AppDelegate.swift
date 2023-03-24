@@ -12,7 +12,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let viewController = ResultViewController(summary: "You got 1 out of 2 correct", answers: [
+            PresentableAnswer(question: "Question 1", answer: "Correct", wrongAnswer: nil),
+            PresentableAnswer(question: "Question 2", answer: "Correct", wrongAnswer: "No"),
+        ])
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = viewController
+        self.window = window
+        window.makeKeyAndVisible()
+        
         return true
     }
 
